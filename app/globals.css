@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --neon-violet: 138, 43, 226;
+  --neon-blue: 0, 191, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263 75% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 263 75% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+  html {
+    @apply overflow-x-hidden;
+  }
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(var(--neon-violet), 0.7),
+    0 0 20px rgba(var(--neon-violet), 0.5),
+    0 0 30px rgba(var(--neon-violet), 0.3);
+}
+
+.glow-button {
+  box-shadow: 0 0 10px rgba(var(--neon-blue), 0.7),
+    0 0 20px rgba(var(--neon-blue), 0.5), 0 0 30px rgba(var(--neon-blue), 0.3);
+}
+
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--neon-violet), 0.1) 0%,
+    rgba(var(--neon-blue), 0.1) 100%
+  );
+}
+
+.scrolling-text {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.globe-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.globe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(var(--background-end-rgb), 0.2) 60%,
+    rgba(var(--background-end-rgb), 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
