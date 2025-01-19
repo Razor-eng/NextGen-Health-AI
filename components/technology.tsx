@@ -33,7 +33,7 @@ const technologies = [
 ]
 
 function InteractiveGlobe() {
-  const meshRef = useRef()
+  const meshRef = useRef<THREE.Mesh>(null)
 
   return (
     <group>

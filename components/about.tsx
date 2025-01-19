@@ -1,14 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Canvas, useLoader } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Stethoscope } from "lucide-react"; // Assuming you're using Lucide icons
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 
 export default function About() {
-  const objModel = useLoader(OBJLoader, "/model.obj");
-
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
       <div className="max-w-7xl mx-auto">
@@ -71,30 +67,6 @@ export default function About() {
               </mesh>
               <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={false} enablePan={false} />
             </Canvas>
-
-            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <motion.div
-                className="text-primary opacity-90"
-                whileHover={{
-                  scale: 1.1, // Slight scale up on hover
-                  boxShadow: "0 0 20px rgba(0, 255, 255, 0.8)", // Glowing effect
-                  transition: { duration: 0.3, ease: "easeOut" },
-                }}
-              >
-                <Canvas camera={{ position: [0, 0, 80] }}>
-                  <ambientLight intensity={0.6} />
-                  <pointLight position={[10, 10, 10]} />
-                  <spotLight
-                    position={[-5, 5, 10]}
-                    angle={0.2}
-                    penumbra={0.5}
-                    intensity={0.8}
-                  />
-                  <primitive object={objModel} scale={1.5} />
-                  <OrbitControls autoRotate autoRotateSpeed={0.5} />
-                </Canvas>
-              </motion.div>
-            </div> */}
           </motion.div>
         </div>
       </div>
